@@ -7,13 +7,17 @@ function sortCarByYearDescendingly(cars) {
   const result = [...cars];
 
   // Tulis code-mu disini
-  for (let i = 0; i < result.length - 1; i++) {
-    for (let j = 0; j < result.length - i - 1; j++) {
-      if (result[j].year < result[j + 1].year) {
-        // Tukar elemen jika year di arr[j] lebih kecil dari year di arr[j + 1]
-        let temp = result[j];
-        result[j] = result[j + 1];
-        result[j + 1] = temp;
+  // Algoritma bubble sort secara decending
+  // 1) perulangan untuk akses data secara satu persatu
+  for (let i=0; i < result.length-1; i++){
+    // 2) perulangan dilakukan sekali lagi, karena rumus buble sort sendiri adalah (jumlahData - 1) * (jumlahData-1)
+    for (let j=0; j < result.length-1; j++){
+      // 3) mengecek apakah data dengan index j kurang dari dari data di index depannya
+      if(result[j].year < result[j+1].year){
+        // 4) jika memenuhi syarat, melakukan pertukaran posisi data, dari data A ke B dan data B ke A
+        let temp = result[j+1]
+        result[j+1] = result[j]
+        result[j] = temp
       }
     }
   }
